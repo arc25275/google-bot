@@ -1,14 +1,19 @@
 {
-  "name": "google-bot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "^12.5.3"
-  }
+	"name": "google-bot",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"start": "node .",
+		"stop": "pm2 stop all"
+	},
+	"author": "arc25275",
+	"license": "ISC",
+	"dependencies": {
+		"chalk": "^4.1.1",
+		"discord.js": "^13.0.0-dev.3a718d8.1625270632",
+		"html-entities": "^2.3.2",
+		"iso-639-1": "^2.1.9",
+		"node-fetch": "^2.6.1"
+	}
 }
