@@ -5,7 +5,6 @@ const myIntents = new Discord.Intents();
 myIntents.add("GUILD_MEMBERS", "GUILD_MESSAGES", "GUILDS");
 const { token } = require("./config/auth.json");
 // const config = require("./config/config.json");
-const prefix = "=";
 
 const client = new Discord.Client({ intents: myIntents });
 client.events = new Discord.Collection();

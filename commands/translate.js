@@ -81,7 +81,7 @@ module.exports = {
 				title: "Results:",
 				description: `Original Text (${ISO.getName(
 					source
-				)}):\n \`\`\`${query}\`\`\`\nTranslated Text(${ISO.getName(
+				)}):\n \`\`\`${query}\`\`\`\nTranslated Text (${ISO.getName(
 					target
 				)}):\n \`\`\`${translatedText}\`\`\``,
 				color: randColor(),

@@ -3,7 +3,7 @@ const { searchkey } = require("../config/auth.json");
 const randColor = require("../util/randColor");
 module.exports = {
 	name: "search",
-	description: "Searches something",
+	description: "Searches something.",
 	options: [
 		{
 			name: "query",
