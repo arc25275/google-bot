@@ -11,6 +11,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"chalk": "^4.1.1",
+		"console-table-printer": "^2.9.0",
 		"discord.js": "^13.0.0-dev.3a718d8.1625270632",
 		"html-entities": "^2.3.2",
 		"iso-639-1": "^2.1.9",
