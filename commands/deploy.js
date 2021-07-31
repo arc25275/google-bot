@@ -1,9 +1,20 @@
 module.exports = {
 	name: "deploy",
-	description: "Deploys Commands",
-	options: [],
-	enabled: true,
-	permissions: [{ id: "822946105955450920", type: "ROLE", permission: true }],
+	description: "Deploys Commands.",
+	options: [
+		{
+			name: "dev",
+			type: "SUB_COMMAND",
+			description: "Pushes commands to dev server",
+		},
+		{
+			name: "global",
+			type: "SUB_COMMAND",
+			description: "Pushes commands globally",
+		},
+	],
+	enabled: false,
+	permissions: [{ id: "369661965376946176", type: "USER", permission: true }],
 	async run(client, interaction) {
 		await interaction.defer();
 		if (!client.application?.owner) await client.application?.fetch();
@@ -18,13 +29,21 @@ module.exports = {
 					permissions: command.permissions,
 				});
 			});
-
-			const commands = await client.guilds.cache
-				.get("594893277468295229")
-				?.commands.set(slashCommands)
-				.catch(console.error);
-			console.log(commands);
-			await interaction.editReply("Commands Pushed");
+			if (interaction.options.get("dev")) {
+				const commands = await client.guilds.cache
+					.get("594893277468295229")
+					?.commands.set(slashCommands)
+					.catch(console.error);
+				console.log(commands);
+				await interaction.editReply("Commands pushed to dev server.");
+			}
+			if (interaction.options.get("global")) {
+				const commands = await client.application?.commands
+					.set(slashCommands)
+					.catch(console.error);
+				console.log(commands);
+				await interaction.editReply("Commands pushed globally.");
+			}
 		}
 	},
 };
