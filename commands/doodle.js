@@ -3,7 +3,7 @@ const randColor = require("../util/randColor");
 
 module.exports = {
 	name: "doodle",
-	description: "Gets todays Google Doodle.",
+	description: "Gets todays Google Doodle, or a specific date",
 	options: [
 		{
 			name: "today",
@@ -48,8 +48,8 @@ module.exports = {
 			await fetch(
 				`${BASE_URL}${new Date().getFullYear()}/${new Date().getMonth() + 1}`
 			)
-				.then((res) => res.json())
-				.then((json) => (doodles = json));
+				.then(res => res.json())
+				.then(json => (doodles = json));
 			if (
 				doodles[0].run_date_array[2] <= new Date().getDate() + 1 &&
 				doodles[0].run_date_array[2] >= new Date().getDate() - 1
@@ -69,18 +69,11 @@ module.exports = {
 					date.get("month").value
 				}`
 			)
-				.then((res) => res.json())
-				.then((json) => (doodles = json));
+				.then(res => res.json())
+				.then(json => (doodles = json));
 
-			doodles.forEach((_doodle) => {
-				if (
-					_doodle.run_date_array[2] == date.get("day").value &&
-					found == false
-				) {
-					doodle = _doodle;
-					found = true;
-				}
-			});
+			doodle = doodles.find(d => d.run_date_array[2] == date.get("day").value);
+			found = !!doodle;
 		}
 		if (found) {
 			const embed = {

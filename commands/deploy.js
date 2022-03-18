@@ -1,6 +1,6 @@
 module.exports = {
 	name: "deploy",
-	description: "Deploys Commands.",
+	description: "Deploys Commands",
 	options: [
 		{
 			name: "dev",
@@ -20,7 +20,7 @@ module.exports = {
 		if (!client.application?.owner) await client.application?.fetch();
 		if (interaction.member.id === client.application?.owner.id) {
 			var slashCommands = [];
-			client.commands.forEach((command) => {
+			client.commands.forEach(command => {
 				slashCommands.push({
 					name: command.name,
 					description: command.description,
@@ -29,19 +29,21 @@ module.exports = {
 					permissions: command.permissions,
 				});
 			});
+
 			if (interaction.options.get("dev")) {
 				const commands = await client.guilds.cache
 					.get("594893277468295229")
 					?.commands.set(slashCommands)
 					.catch(console.error);
-				console.log(commands);
+				// console.log(commands);
 				await interaction.editReply("Commands pushed to dev server.");
 			}
 			if (interaction.options.get("global")) {
+				await client.application?.commands;
 				const commands = await client.application?.commands
 					.set(slashCommands)
 					.catch(console.error);
-				console.log(commands);
+				// console.log(commands);
 				await interaction.editReply("Commands pushed globally.");
 			}
 		}

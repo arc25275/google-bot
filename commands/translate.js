@@ -51,8 +51,8 @@ module.exports = {
 				headers: { "Content-Type": "application/json" },
 			}
 		)
-			.then((res) => res.json())
-			.then((json) => (source = json.data.detections[0][0].language));
+			.then(res => res.json())
+			.then(json => (source = json.data.detections[0][0].language));
 
 		await fetch(
 			`https://translation.googleapis.com/language/translate/v2?key=${translatekey}`,
@@ -67,9 +67,9 @@ module.exports = {
 				headers: { "Content-Type": "application/json" },
 			}
 		)
-			.then((res) => res.json())
+			.then(res => res.json())
 			.then(
-				(json) =>
+				json =>
 					(translatedText = decode(json.data.translations[0].translatedText))
 			);
 		if (mobile) {

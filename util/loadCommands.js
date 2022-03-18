@@ -5,11 +5,12 @@ const { Table } = require("console-table-printer");
 module.exports = async function loadCommands(client) {
 	const commandFiles = fs
 		.readdirSync(__dirname + "/../commands")
-		.filter((file) => file.endsWith(".js"));
+		.filter(file => file.endsWith(".js"));
 	for (const file of commandFiles) {
 		const command = require(__dirname + `/../commands/${file}`);
 		await client.commands.set(command.name, command);
 	}
+	console.log(client.commands);
 	const p = new Table({
 		title: "Commands",
 		columns: [
@@ -17,7 +18,7 @@ module.exports = async function loadCommands(client) {
 			{ name: "Description", alignment: "left" },
 		],
 	});
-	client.commands.forEach((command) => {
+	client.commands.forEach(command => {
 		p.addRow(
 			{
 				Name: command.name.charAt(0).toUpperCase() + command.name.slice(1),

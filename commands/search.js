@@ -3,7 +3,7 @@ const { searchkey } = require("../config/auth.json");
 const randColor = require("../util/randColor");
 module.exports = {
 	name: "search",
-	description: "Searches something.",
+	description: "Searches something",
 	options: [
 		{
 			name: "query",
@@ -21,9 +21,9 @@ module.exports = {
 		await fetch(
 			`https://customsearch.googleapis.com/customsearch/v1?cx=336aaf40ae3497966&exactTerms=${query}&key=${searchkey}`
 		)
-			.then((res) => res.json())
-			.then((json) =>
-				json.items.forEach((res) => {
+			.then(res => res.json())
+			.then(json =>
+				json.items.forEach(res => {
 					fields.push({
 						name: `**${res.title}** - ${res.link}`,
 						value: res.snippet,

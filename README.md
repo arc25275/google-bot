@@ -8,10 +8,14 @@ _A Discord bot made using Google APIs_
 
 </div>
 
+- Deploy - Deploys Commands
+- Doodle - Gets todays Google Doodle, or a specific date
+- Help - Gives more info about a command
+- Info - Gives info about the bot
+- Ping - Shows ping
+- Search - Searches something
+- Translate - Translate something from one language to another
+
 ### Todo:
 
-- [ ] Help Command
-- [ ] Info Command
-- [ ] Look Into other APIs to Include
-- [ ] Embed and Code Polish
-- [ ] Find a way to use discord buttons
+- Nothing, I'm considering this finished
